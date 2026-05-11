@@ -260,18 +260,6 @@ A solid, well-researched report that would benefit from deeper statistical analy
 
 ---
 
-## 🧩 Key Design Decisions
-
-| Decision | Rationale |
-|----------|-----------|
-| **Agent vs. Chain separation** | Search and Reader need *tool access* (web search, scraping), so they use full LangChain agents. Writer and Critic are pure text-in → text-out tasks, so lightweight LCEL chains are more efficient. |
-| **Sequential pipeline** | Each stage depends on the previous stage's output (search → scrape → write → critique), so a linear pipeline is the natural fit. |
-| **GPT-4o-mini** | Balances quality and cost — strong enough for structured research writing while keeping API costs low. |
-| **Tavily over SerpAPI** | Tavily is purpose-built for AI agent search with cleaner, more relevant results and a generous free tier. |
-| **Custom Streamlit CSS** | The default Streamlit theme doesn't convey the right feel for a research tool; custom CSS with dark mode, accent colors, and typography creates a premium experience. |
-
----
-
 ## 🔮 Future Enhancements
 
 - [ ] **Iterative refinement loop** — Feed critic feedback back to the writer for automatic report improvement
